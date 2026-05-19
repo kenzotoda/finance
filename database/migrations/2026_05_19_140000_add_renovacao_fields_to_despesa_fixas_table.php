@@ -17,11 +17,19 @@ return new class extends Migration
             $table->unsignedSmallInteger('renovacao_ano')->nullable()->after('renovacao_mes');
         });
 
+        $driver = DB::connection()->getDriverName();
+        $mesExpression = $driver === 'pgsql'
+            ? DB::raw('EXTRACT(MONTH FROM created_at)::int')
+            : DB::raw('MONTH(created_at)');
+        $anoExpression = $driver === 'pgsql'
+            ? DB::raw('EXTRACT(YEAR FROM created_at)::int')
+            : DB::raw('YEAR(created_at)');
+
         DB::table('despesa_fixas')
             ->where('periodicidade', 'anual')
             ->update([
-                'renovacao_mes' => DB::raw('MONTH(created_at)'),
-                'renovacao_ano' => DB::raw('YEAR(created_at)'),
+                'renovacao_mes' => $mesExpression,
+                'renovacao_ano' => $anoExpression,
             ]);
     }
 
