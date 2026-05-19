@@ -3,6 +3,12 @@
 use Illuminate\Support\Str;
 use Pdo\Mysql;
 
+ $defaultConnection = env('DB_CONNECTION', 'sqlite');
+
+if ($defaultConnection === 'postgres') {
+    $defaultConnection = 'pgsql';
+}
+
 return [
 
     /*
@@ -17,7 +23,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => $defaultConnection,
 
     /*
     |--------------------------------------------------------------------------
