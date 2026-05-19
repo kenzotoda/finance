@@ -69,8 +69,22 @@
         </table>
     </div>
 
-    <script src="https://cdn.pluggy.ai/connect/v2/pluggy-connect.js"></script>
+    <script src="https://cdn.pluggy.ai/pluggy-connect/v2.7.0/pluggy-connect.js"></script>
     <script>
+        function createPluggyInstance(options) {
+            const Candidate = window.PluggyConnect?.default ?? window.PluggyConnect;
+
+            if (typeof Candidate === 'function') {
+                return new Candidate(options);
+            }
+
+            if (window.PluggyConnect && typeof window.PluggyConnect.init === 'function') {
+                return window.PluggyConnect.init(options);
+            }
+
+            throw new Error('SDK da Pluggy nao carregado corretamente.');
+        }
+
         async function abrirPluggyConnect() {
             const response = await fetch('{{ route('open-finance.connect-token') }}', {
                 method: 'POST',
@@ -87,7 +101,7 @@
             }
 
             const { accessToken } = await response.json();
-            const pluggyConnect = new window.PluggyConnect({
+            const pluggyConnect = createPluggyInstance({
                 connectToken: accessToken,
                 includeSandbox: {{ config('services.pluggy.include_sandbox') ? 'true' : 'false' }},
                 onSuccess: async (itemData) => {
@@ -109,7 +123,9 @@
                 },
             });
 
-            pluggyConnect.init();
+            if (pluggyConnect && typeof pluggyConnect.init === 'function') {
+                pluggyConnect.init();
+            }
         }
 
         document.getElementById('connect-bank-btn')?.addEventListener('click', () => {
