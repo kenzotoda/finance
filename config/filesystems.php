@@ -60,6 +60,21 @@ return [
             'report' => false,
         ],
 
+        'supabase' => [
+            'driver' => 's3',
+            'key' => env('SUPABASE_STORAGE_ACCESS_KEY'),
+            'secret' => env('SUPABASE_STORAGE_SECRET_KEY'),
+            'region' => env('SUPABASE_STORAGE_REGION', 'us-east-1'),
+            'bucket' => env('SUPABASE_FATURA_BUCKET', 'fatura-dev'),
+            'endpoint' => env('SUPABASE_STORAGE_ENDPOINT'),
+            'use_path_style_endpoint' => env('SUPABASE_STORAGE_USE_PATH_STYLE', true),
+            'throw' => true,
+            'report' => false,
+            'http' => [
+                'verify' => filter_var(env('SUPABASE_VERIFY_SSL', true), FILTER_VALIDATE_BOOL),
+            ],
+        ],
+
     ],
 
     /*

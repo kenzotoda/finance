@@ -15,17 +15,20 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         Dashboard
                     </x-nav-link>
+                    <x-nav-link :href="route('despesas.index')" :active="request()->routeIs('despesas.*')">
+                        Despesas do cartao
+                    </x-nav-link>
                     <x-nav-link :href="route('despesas-fixas.index')" :active="request()->routeIs('despesas-fixas.*')">
                         Despesas Fixas
                     </x-nav-link>
                     <x-nav-link :href="route('lucros-fixos.index')" :active="request()->routeIs('lucros-fixos.*')">
                         Lucros Fixos
                     </x-nav-link>
+                    <x-nav-link :href="route('pagar-receber.index')" :active="request()->routeIs('pagar-receber.*')">
+                        Pagar ou Receber
+                    </x-nav-link>
                     <x-nav-link :href="route('impostos.index')" :active="request()->routeIs('impostos.*')">
                         Impostos
-                    </x-nav-link>
-                    <x-nav-link :href="route('open-finance.index')" :active="request()->routeIs('open-finance.*')">
-                        Open Finance
                     </x-nav-link>
                     <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
                         Categorias
@@ -85,17 +88,20 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 Dashboard
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('despesas.index')" :active="request()->routeIs('despesas.*')">
+                Despesas do cartao
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('despesas-fixas.index')" :active="request()->routeIs('despesas-fixas.*')">
                 Despesas Fixas
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('lucros-fixos.index')" :active="request()->routeIs('lucros-fixos.*')">
                 Lucros Fixos
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('pagar-receber.index')" :active="request()->routeIs('pagar-receber.*')">
+                Pagar ou Receber
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('impostos.index')" :active="request()->routeIs('impostos.*')">
                 Impostos
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('open-finance.index')" :active="request()->routeIs('open-finance.*')">
-                Open Finance
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
                 Categorias

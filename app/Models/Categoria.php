@@ -32,9 +32,4 @@ class Categoria extends Model
     {
         return $this->hasMany(DespesaFixa::class);
     }
-
-    public function openFinanceTransactions(): HasMany
-    {
-        return $this->hasMany(OpenFinanceTransaction::class);
-    }
 }

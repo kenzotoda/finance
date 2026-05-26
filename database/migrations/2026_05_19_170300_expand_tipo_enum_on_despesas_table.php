@@ -10,14 +10,14 @@ return new class extends Migration
         $driver = DB::connection()->getDriverName();
 
         if ($driver === 'mysql') {
-            DB::statement("ALTER TABLE despesas MODIFY COLUMN tipo ENUM('fixa', 'variavel', 'imposto', 'open_finance_debito') NOT NULL");
+            DB::statement("ALTER TABLE despesas MODIFY COLUMN tipo ENUM('fixa', 'variavel', 'imposto') NOT NULL");
 
             return;
         }
 
         if ($driver === 'pgsql') {
             DB::statement("ALTER TABLE despesas DROP CONSTRAINT IF EXISTS despesas_tipo_check");
-            DB::statement("ALTER TABLE despesas ADD CONSTRAINT despesas_tipo_check CHECK (tipo IN ('fixa', 'variavel', 'imposto', 'open_finance_debito'))");
+            DB::statement("ALTER TABLE despesas ADD CONSTRAINT despesas_tipo_check CHECK (tipo IN ('fixa', 'variavel', 'imposto'))");
         }
     }
 

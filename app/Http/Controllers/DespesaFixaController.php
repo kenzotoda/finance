@@ -16,17 +16,30 @@ class DespesaFixaController extends Controller
 
     public function index(): View
     {
-        $queryDespesasFixas = Auth::user()->despesasFixas();
+        $queryMensais = Auth::user()->despesasFixas()
+            ->where('periodicidade', DespesaFixa::PERIODICIDADE_MENSAL);
+        $queryAnuais = Auth::user()->despesasFixas()
+            ->where('periodicidade', DespesaFixa::PERIODICIDADE_ANUAL);
 
-        $despesasFixas = (clone $queryDespesasFixas)
+        $despesasFixasMensais = (clone $queryMensais)
             ->with('categoria')
             ->latest()
-            ->paginate(10)
-            ->withQueryString();
+            ->get();
 
-        $totalDespesasFixas = (clone $queryDespesasFixas)->sum('valor');
+        $despesasFixasAnuais = (clone $queryAnuais)
+            ->with('categoria')
+            ->latest()
+            ->get();
 
-        return view('despesas-fixas.index', compact('despesasFixas', 'totalDespesasFixas'));
+        $totalDespesasFixasMensais = (clone $queryMensais)->sum('valor');
+        $totalDespesasFixasAnuais = (clone $queryAnuais)->sum('valor');
+
+        return view('despesas-fixas.index', compact(
+            'despesasFixasMensais',
+            'despesasFixasAnuais',
+            'totalDespesasFixasMensais',
+            'totalDespesasFixasAnuais',
+        ));
     }
 
     public function create(): View

@@ -35,14 +35,4 @@ return [
         ],
     ],
 
-    'pluggy' => [
-        'client_id' => env('PLUGGY_CLIENT_ID'),
-        'client_secret' => env('PLUGGY_CLIENT_SECRET'),
-        'api_key' => env('PLUGGY_API_KEY'),
-        'base_url' => env('PLUGGY_BASE_URL', 'https://api.pluggy.ai'),
-        'include_sandbox' => (bool) env('PLUGGY_INCLUDE_SANDBOX', true),
-        'verify_ssl' => (bool) env('PLUGGY_VERIFY_SSL', true),
-        'ca_bundle' => env('PLUGGY_CA_BUNDLE'),
-    ],
-
 ];

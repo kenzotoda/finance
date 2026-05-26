@@ -12,6 +12,8 @@ class Despesa extends Model
         'categoria_id',
         'despesa_fixa_id',
         'imposto_id',
+        'cartao_id',
+        'fatura_cartao_id',
         'compra_parcelada_id',
         'parcela_atual',
         'total_parcelas',
@@ -19,6 +21,10 @@ class Despesa extends Model
         'valor',
         'data',
         'tipo',
+        'origem',
+        'fatura_arquivo',
+        'fatura_hash',
+        'hash_lancamento',
         'descricao',
     ];
 
@@ -50,5 +56,15 @@ class Despesa extends Model
     public function imposto(): BelongsTo
     {
         return $this->belongsTo(Imposto::class);
+    }
+
+    public function cartao(): BelongsTo
+    {
+        return $this->belongsTo(Cartao::class);
+    }
+
+    public function faturaCartao(): BelongsTo
+    {
+        return $this->belongsTo(FaturaCartao::class);
     }
 }

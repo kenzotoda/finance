@@ -62,13 +62,18 @@ class User extends Authenticatable
         return $this->hasMany(Imposto::class);
     }
 
-    public function openFinanceItems(): HasMany
+    public function cartoes(): HasMany
     {
-        return $this->hasMany(OpenFinanceItem::class);
+        return $this->hasMany(Cartao::class);
     }
 
-    public function openFinanceTransactions(): HasMany
+    public function faturasCartao(): HasMany
     {
-        return $this->hasMany(OpenFinanceTransaction::class);
+        return $this->hasMany(FaturaCartao::class);
+    }
+
+    public function contasPagarReceber(): HasMany
+    {
+        return $this->hasMany(ContaPagarReceber::class);
     }
 }

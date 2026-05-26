@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DespesaFixa;
+use App\Models\Imposto;
+use App\Models\LucroFixo;
 use App\Services\ReplicarDespesasFixasService;
 use App\Services\ReplicarImpostosService;
 use App\Services\ReplicarLucrosFixosService;
@@ -23,18 +26,26 @@ class DashboardController extends Controller
         $this->replicarLucrosFixosService->execute($user);
         $this->replicarImpostosService->execute($user);
 
-        $totalDespesasFixas = $user->despesasFixas()->where('ativa', true)->sum('valor');
-        $totalImpostos = $user->impostos()->where('ativa', true)->sum('valor');
-        $totalLucrosFixos = $user->lucrosFixos()->where('ativa', true)->sum('valor');
-        $totalSaidas = $totalDespesasFixas + $totalImpostos;
-        $saldo = $totalLucrosFixos - $totalSaidas;
+        $totalDespesasFixasMensais = $user->despesasFixas()
+            ->where('ativa', true)
+            ->where('periodicidade', DespesaFixa::PERIODICIDADE_MENSAL)
+            ->sum('valor');
+        $totalImpostosMensais = $user->impostos()
+            ->where('ativa', true)
+            ->where('periodicidade', Imposto::PERIODICIDADE_MENSAL)
+            ->sum('valor');
+        $totalLucrosFixosMensais = $user->lucrosFixos()
+            ->where('ativa', true)
+            ->where('periodicidade', LucroFixo::PERIODICIDADE_MENSAL)
+            ->sum('valor');
+        $totalSaidasMensais = $totalDespesasFixasMensais + $totalImpostosMensais;
+        $saldoMensal = $totalLucrosFixosMensais - $totalSaidasMensais;
 
         return view('dashboard', compact(
-            'totalDespesasFixas',
-            'totalImpostos',
-            'totalLucrosFixos',
-            'totalSaidas',
-            'saldo',
+            'totalDespesasFixasMensais',
+            'totalImpostosMensais',
+            'totalLucrosFixosMensais',
+            'saldoMensal',
         ));
     }
 }
