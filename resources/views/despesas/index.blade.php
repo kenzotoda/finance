@@ -80,7 +80,7 @@
                     <x-input-error :messages="$errors->get('fatura')" class="mt-2" />
                     <p class="mt-1 text-xs text-gray-500">
                         Formatos aceitos: <strong>OFX</strong> (exportacao do banco/cartao) ou <strong>CSV/TXT</strong> com colunas de data, descricao e valor (separador <strong>;</strong> ou <strong>,</strong>).
-                        Tamanho maximo: 10 MB. O arquivo e salvo no bucket Supabase S3 <strong>{{ config('filesystems.disks.supabase.bucket', 'fatura-dev') }}</strong>.
+                        Tamanho maximo: 10 MB.
                     </p>
                 </div>
             </div>

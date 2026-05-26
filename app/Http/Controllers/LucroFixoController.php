@@ -16,17 +16,30 @@ class LucroFixoController extends Controller
 
     public function index(): View
     {
-        $queryLucrosFixos = Auth::user()->lucrosFixos();
+        $queryMensais = Auth::user()->lucrosFixos()
+            ->where('periodicidade', LucroFixo::PERIODICIDADE_MENSAL);
+        $queryAnuais = Auth::user()->lucrosFixos()
+            ->where('periodicidade', LucroFixo::PERIODICIDADE_ANUAL);
 
-        $lucrosFixos = (clone $queryLucrosFixos)
+        $lucrosFixosMensais = (clone $queryMensais)
             ->with('categoria')
             ->latest()
-            ->paginate(10)
-            ->withQueryString();
+            ->get();
 
-        $totalLucrosFixos = (clone $queryLucrosFixos)->sum('valor');
+        $lucrosFixosAnuais = (clone $queryAnuais)
+            ->with('categoria')
+            ->latest()
+            ->get();
 
-        return view('lucros-fixos.index', compact('lucrosFixos', 'totalLucrosFixos'));
+        $totalLucrosFixosMensais = (clone $queryMensais)->sum('valor');
+        $totalLucrosFixosAnuais = (clone $queryAnuais)->sum('valor');
+
+        return view('lucros-fixos.index', compact(
+            'lucrosFixosMensais',
+            'lucrosFixosAnuais',
+            'totalLucrosFixosMensais',
+            'totalLucrosFixosAnuais',
+        ));
     }
 
     public function create(): View
