@@ -16,17 +16,30 @@ class ImpostoController extends Controller
 
     public function index(): View
     {
-        $queryImpostos = Auth::user()->impostos();
+        $queryMensais = Auth::user()->impostos()
+            ->where('periodicidade', Imposto::PERIODICIDADE_MENSAL);
+        $queryAnuais = Auth::user()->impostos()
+            ->where('periodicidade', Imposto::PERIODICIDADE_ANUAL);
 
-        $impostos = (clone $queryImpostos)
+        $impostosMensais = (clone $queryMensais)
             ->with('categoria')
             ->latest()
-            ->paginate(10)
-            ->withQueryString();
+            ->get();
 
-        $totalImpostos = (clone $queryImpostos)->sum('valor');
+        $impostosAnuais = (clone $queryAnuais)
+            ->with('categoria')
+            ->latest()
+            ->get();
 
-        return view('impostos.index', compact('impostos', 'totalImpostos'));
+        $totalImpostosMensais = (clone $queryMensais)->sum('valor');
+        $totalImpostosAnuais = (clone $queryAnuais)->sum('valor');
+
+        return view('impostos.index', compact(
+            'impostosMensais',
+            'impostosAnuais',
+            'totalImpostosMensais',
+            'totalImpostosAnuais',
+        ));
     }
 
     public function create(): View
