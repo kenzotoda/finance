@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="text-xl font-semibold text-gray-800">Lucros fixos</h2>
-            <a href="{{ route('lucros-fixos.create') }}" class="rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">Novo lucro fixo</a>
+            <h2 class="text-xl font-semibold text-slate-800">Lucros fixos</h2>
+            <a href="{{ route('lucros-fixos.create') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">Novo lucro fixo</a>
         </div>
     </x-slot>
 
-    <div class="space-y-7">
+    <div class="finance-stacked-sections">
         @include('lucros-fixos._tabela', [
             'lucrosFixos' => $lucrosFixosMensais,
             'total' => $totalLucrosFixosMensais,

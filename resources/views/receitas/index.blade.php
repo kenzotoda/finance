@@ -23,10 +23,10 @@
             <thead class="bg-gray-50">
                 <tr>
                     <th class="px-4 py-3 text-left">Data</th>
-                    <th class="px-4 py-3 text-left">Titulo</th>
+                    <th class="px-4 py-3 text-left">Título</th>
                     <th class="px-4 py-3 text-left">Categoria</th>
                     <th class="px-4 py-3 text-right">Valor</th>
-                    <th class="px-4 py-3 text-right">Acoes</th>
+                    <th class="px-4 py-3 text-right">Ações</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">

@@ -43,7 +43,7 @@
             <tr>
                 <th>Tipo</th>
                 <th>Data</th>
-                <th>Titulo</th>
+                <th>Título</th>
                 <th>Categoria</th>
                 <th class="right">Valor</th>
             </tr>

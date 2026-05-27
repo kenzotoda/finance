@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800">Despesas do cartao</h2>
+        <h2 class="text-xl font-semibold text-slate-800">Despesas do cartao</h2>
     </x-slot>
 
     <div class="mb-4 grid gap-4 lg:grid-cols-2">
@@ -127,7 +127,7 @@
                         <tr>
                             <th class="px-3 py-2 text-left">#</th>
                             <th class="px-3 py-2 text-left">Data</th>
-                            <th class="px-3 py-2 text-left">Titulo</th>
+                            <th class="px-3 py-2 text-left">Título</th>
                             <th class="px-3 py-2 text-right">Valor</th>
                             <th class="px-3 py-2 text-left">Status</th>
                             <th class="px-3 py-2 text-left">Motivo</th>

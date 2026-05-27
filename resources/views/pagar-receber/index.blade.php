@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-3">
-            <h2 class="text-xl font-semibold text-gray-800">Pagar ou receber</h2>
+            <h2 class="text-xl font-semibold text-slate-800">Pagar ou receber</h2>
             <div class="flex flex-wrap items-center gap-2">
-                <a href="{{ route('pagar-receber.create', ['tipo' => 'pagar']) }}" class="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">
+                <a href="{{ route('pagar-receber.create', ['tipo' => 'pagar']) }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">
                     Novo a pagar
                 </a>
-                <a href="{{ route('pagar-receber.create', ['tipo' => 'receber']) }}" class="rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
+                <a href="{{ route('pagar-receber.create', ['tipo' => 'receber']) }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">
                     Novo a receber
                 </a>
             </div>
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div class="space-y-7">
+    <div class="finance-stacked-sections">
         @if ($filtro === 'todos' || $filtro === 'pagar')
             @include('pagar-receber._tabela', [
                 'contas' => $contasPagar,

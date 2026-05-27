@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="text-xl font-semibold text-gray-800">Impostos</h2>
-            <a href="{{ route('impostos.create') }}" class="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700">Novo imposto</a>
+            <h2 class="text-xl font-semibold text-slate-800">Impostos</h2>
+            <a href="{{ route('impostos.create') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">Novo imposto</a>
         </div>
     </x-slot>
 
-    <div class="space-y-7">
+    <div class="finance-stacked-sections">
         @include('impostos._tabela', [
             'impostos' => $impostosMensais,
             'total' => $totalImpostosMensais,

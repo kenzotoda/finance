@@ -5,6 +5,7 @@
 
 @php
     $sizes = [
+        'xs' => ['box' => '28px', 'radius' => '9px', 'icon' => '13px', 'title' => '20px', 'gap' => '8px'],
         'sm' => ['box' => '36px', 'radius' => '12px', 'icon' => '16px', 'title' => '26px', 'gap' => '10px'],
         'md' => ['box' => '46px', 'radius' => '14px', 'icon' => '22px', 'title' => '34px', 'gap' => '12px'],
         'lg' => ['box' => '58px', 'radius' => '18px', 'icon' => '28px', 'title' => '44px', 'gap' => '14px'],

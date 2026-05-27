@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="text-xl font-semibold text-gray-800">Categorias</h2>
-            <a href="{{ route('categorias.create') }}" class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">Nova categoria</a>
+            <h2 class="text-xl font-semibold text-slate-800">Categorias</h2>
+            <a href="{{ route('categorias.create') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">Nova categoria</a>
         </div>
     </x-slot>
 
@@ -11,7 +11,7 @@
             <thead class="bg-gray-50">
                 <tr>
                     <th class="px-4 py-3 text-left font-semibold text-gray-600">Nome</th>
-                    <th class="px-4 py-3 text-right font-semibold text-gray-600">Acoes</th>
+                    <th class="px-4 py-3 text-right font-semibold text-gray-600">Ações</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 bg-white">

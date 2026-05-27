@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800">Relatorio mensal</h2>
+        <h2 class="text-xl font-semibold text-slate-800">Relatorio mensal</h2>
     </x-slot>
 
     <form method="GET" class="mb-4 grid gap-3 rounded-xl bg-white p-4 shadow-sm md:grid-cols-2">
@@ -9,7 +9,7 @@
                 <option value="{{ $item['value'] }}" @selected($item['value'] === $competencia)>{{ $item['label'] }}</option>
             @endforeach
         </select>
-        <button class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">Ver mes</button>
+        <button class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">Ver mes</button>
     </form>
 
     <div class="mb-4 flex flex-wrap gap-2">
@@ -47,7 +47,7 @@
                 <tr>
                     <th class="px-4 py-3 text-left">Tipo</th>
                     <th class="px-4 py-3 text-left">Data</th>
-                    <th class="px-4 py-3 text-left">Titulo</th>
+                    <th class="px-4 py-3 text-left">Título</th>
                     <th class="px-4 py-3 text-left">Categoria</th>
                     <th class="px-4 py-3 text-right">Valor</th>
                 </tr>

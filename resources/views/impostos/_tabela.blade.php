@@ -1,5 +1,5 @@
-<div class="overflow-hidden rounded-xl bg-white shadow-sm">
-    <div class="flex items-center gap-3 bg-gray-50 px-5 py-4">
+<div class="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-blue-100">
+    <div class="flex items-center gap-3 bg-blue-50 px-5 py-4">
         <span class="h-8 w-1 shrink-0 rounded-full bg-amber-600" aria-hidden="true"></span>
         <h3 class="text-lg font-bold tracking-tight text-gray-900">{{ $titulo }}</h3>
     </div>
@@ -14,15 +14,15 @@
                 <col style="width: 10%;">
                 <col style="width: 15%;">
             </colgroup>
-            <thead class="bg-gray-100">
+            <thead class="bg-blue-100/70">
                 <tr>
                     <th scope="col" class="px-4 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700">Tipo</th>
-                    <th scope="col" class="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700">Titulo</th>
+                    <th scope="col" class="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700">Título</th>
                     <th scope="col" class="px-4 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700">Categoria</th>
                     <th scope="col" class="px-4 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700">{{ $tipo === 'anual' ? 'Renovacao' : 'Vencimento' }}</th>
                     <th scope="col" class="px-4 py-3.5 text-right text-xs font-semibold uppercase tracking-wide text-gray-700">Valor</th>
                     <th scope="col" class="px-4 py-3.5 text-center text-xs font-semibold uppercase tracking-wide text-gray-700">Status</th>
-                    <th scope="col" class="px-5 py-3.5 text-right text-xs font-semibold uppercase tracking-wide text-gray-700">Acoes</th>
+                    <th scope="col" class="px-5 py-3.5 text-right text-xs font-semibold uppercase tracking-wide text-gray-700">Ações</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 bg-white">
@@ -70,7 +70,7 @@
                         </td>
                         <td class="px-5 py-4 text-right">
                             <div class="inline-flex items-center justify-end gap-2">
-                                <a href="{{ route('impostos.edit', $imposto) }}" class="inline-flex h-8 min-w-[4.25rem] items-center justify-center rounded-md border border-gray-300 bg-white px-3 text-xs font-medium text-gray-700 shadow-sm transition hover:border-gray-400 hover:bg-gray-50">
+                                <a href="{{ route('impostos.edit', $imposto) }}" class="inline-flex h-8 min-w-[4.25rem] items-center justify-center rounded-md border border-blue-200 bg-white px-3 text-xs font-medium text-blue-700 shadow-sm transition hover:border-blue-300 hover:bg-blue-50">
                                     Editar
                                 </a>
                                 <form method="POST" action="{{ route('impostos.destroy', $imposto) }}" class="inline-flex" onsubmit="return confirm('Deseja excluir este imposto?')">
@@ -89,7 +89,7 @@
                     </tr>
                 @endforelse
             </tbody>
-            <tfoot class="border-t border-gray-200 bg-gray-50">
+            <tfoot class="border-t border-blue-100 bg-blue-50/70">
                 <tr>
                     <td colspan="4" class="px-5 py-3.5 text-right text-sm font-semibold text-gray-700">
                         Total {{ $tipo === 'anual' ? 'anual' : 'mensal' }}
