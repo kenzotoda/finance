@@ -7,9 +7,9 @@
     $sizes = [
         'xs' => ['box' => '28px', 'radius' => '9px', 'icon' => '13px', 'title' => '20px', 'gap' => '8px'],
         'sm' => ['box' => '36px', 'radius' => '12px', 'icon' => '16px', 'title' => '26px', 'gap' => '10px'],
-        'md' => ['box' => '46px', 'radius' => '14px', 'icon' => '22px', 'title' => '34px', 'gap' => '12px'],
-        'lg' => ['box' => '58px', 'radius' => '18px', 'icon' => '28px', 'title' => '44px', 'gap' => '14px'],
-        'xl' => ['box' => '74px', 'radius' => '22px', 'icon' => '38px', 'title' => '58px', 'gap' => '16px'],
+        'md' => ['box' => '46px', 'radius' => '14px', 'icon' => '20px', 'title' => '34px', 'gap' => '12px'],
+        'lg' => ['box' => '58px', 'radius' => '18px', 'icon' => '26px', 'title' => '44px', 'gap' => '14px'],
+        'xl' => ['box' => '74px', 'radius' => '22px', 'icon' => '34px', 'title' => '58px', 'gap' => '16px'],
     ];
 
     $style = $sizes[$size] ?? $sizes['md'];
@@ -29,19 +29,10 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        overflow: visible;
         box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
     ">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="#ffffff"
-             stroke-width="2.2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             style="width: {{ $style['icon'] }}; height: {{ $style['icon'] }};">
-            <path d="M12 2v20" />
-            <path d="M17 7.5c0-1.93-1.79-3.5-4-3.5s-4 1.57-4 3.5 1.79 3.5 4 3.5 4 1.57 4 3.5-1.79 3.5-4 3.5-4-1.57-4-3.5" />
-        </svg>
+        <x-icons.currency-dollar :size="$style['icon']" color="#ffffff" />
     </div>
     <span style="
         color: {{ $titleColor }};

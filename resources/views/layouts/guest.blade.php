@@ -7,15 +7,26 @@
 
         <title>{{ config('app.name', 'Finance') }}</title>
 
+        <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+        <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
             .auth-shell {
                 min-height: 100vh;
                 display: grid;
                 grid-template-columns: 1fr;
+                overflow-x: hidden;
                 background:
                     radial-gradient(70rem 40rem at 10% -10%, #dbeafe 0, rgba(219, 234, 254, 0) 50%),
                     radial-gradient(65rem 40rem at 100% 110%, #bfdbfe 0, rgba(191, 219, 254, 0) 50%),
@@ -32,6 +43,7 @@
                 justify-content: center;
                 align-items: center;
                 padding: 2.5rem 1.25rem;
+                overflow: hidden;
             }
 
             .auth-right::before,
@@ -77,20 +89,11 @@
                 padding: 1.35rem;
             }
 
-            .back-home {
-                margin-top: 1.1rem;
-                text-align: center;
-                font-size: 0.9rem;
-            }
-
-            .back-home a {
-                color: #2563eb;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            .back-home a:hover {
-                color: #1d4ed8;
+            .finance-dollar-icon {
+                display: inline-block;
+                line-height: 1;
+                width: auto;
+                height: auto;
             }
 
             @media (min-width: 640px) {
@@ -169,12 +172,6 @@
                     <div class="auth-card">
                         {{ $slot }}
                     </div>
-
-                    <p class="back-home">
-                        <a href="{{ url('/') }}">
-                            Voltar para início
-                        </a>
-                    </p>
                 </div>
             </div>
         </div>
